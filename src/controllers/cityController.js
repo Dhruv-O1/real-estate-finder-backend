@@ -24,4 +24,16 @@ const getCities = async (req, res) => {
   }
 };
 
-module.exports = { addCity, getCities };
+const getCitiesByStateId = async (req,res) => {
+    try {
+        const cities = await cityModel.find({stateId: req.params.stateId});
+        res.status(200).json({
+            message:"Cities fetched succesfully with state id....",
+            data: cities
+        })
+    } catch (error) {
+        res.status(500).json({ message: error });
+    }
+}
+
+module.exports = { addCity, getCities, getCitiesByStateId };

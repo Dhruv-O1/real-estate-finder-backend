@@ -10,7 +10,7 @@ const citySchema = new Schema({
     },
     stateId:{
         type:Schema.Types.ObjectId,
-        ref:"State",
+        ref:"state",
     }
 },{
     timestamps: true

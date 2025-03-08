@@ -7,11 +7,11 @@ const areaSchema = new Schema({
     },
     stateId:{
         type:Schema.Types.ObjectId,
-        ref:'State'
+        ref:'state'
     },
     cityId:{
         type:Schema.Types.ObjectId,
-        ref:'City'
+        ref:'city'
     }
     
 },{
