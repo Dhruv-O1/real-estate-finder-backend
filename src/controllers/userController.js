@@ -1,5 +1,6 @@
 const userModel = require("../models/userModel")
 const bcrypt = require("bcrypt");
+const mailUtil = require("../utils/mailUtil")
 
 const loginUser = async(req,res) => {
 
@@ -60,12 +61,16 @@ const signUp = async (req,res) => {
 
         req.body.password = hashedPassword;
 
-        const signedUp = await (await userModel.create(req.body)).populate("roleId")
+        const createdUser = await (await userModel.create(req.body)).populate("roleId")
         // const userRoleName = addedUser.data.roleId.name
+        console.log(createdUser);
+        
+        //sending mail to user
+        const mailResponse = await mailUtil.sendingMail(createdUser.email,"Welcome to Real Estate finder", "this is test mail")
 
         res.json({
             message:"User Signup to db succesfully",
-            data:signedUp
+            data:createdUser
 
         })
     } catch (error) {
