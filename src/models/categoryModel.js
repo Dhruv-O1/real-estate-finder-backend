@@ -3,18 +3,21 @@ const mongoose = require("mongoose")
 const Schema = mongoose.Schema
 
 const categorySchema = new Schema({
-    name:{
-        enum:["apartment","house","villa","commercial","plot"],
+    categoryName: {
         type: String,
-        required: true
-    },
-    description:{
-        type: String
-    },
-    isActive:{
-        type: Boolean,
-        default: true
-    }
+        required: true,
+        unique: true,
+        trim: true
+      },
+      description: {
+        type: String,
+        default: ''
+      },
+      status: {
+        type: String,
+        enum: ['active', 'inactive'],
+        default: 'active'
+      }
 },{
     timestamps:true
 })

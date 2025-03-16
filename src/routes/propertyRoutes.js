@@ -7,4 +7,6 @@ routes.get("/getall" , propertyController.getAllProperty)
 
 routes.delete("/drop", propertyController.deleteProperty)
 
+routes.post('/addWithFile', propertyController.addPropertyWithFile);
+
 module.exports = routes

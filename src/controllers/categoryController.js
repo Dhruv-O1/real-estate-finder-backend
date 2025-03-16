@@ -17,7 +17,7 @@ const addCategory = async (req,res) => {
 
 const getCategory = async (req, res) => {
   try {
-    const category = await cityModel.find()
+    const category = await categoryModel.find()
     res.status(200).json({
       message: "All category",
       data: category,
@@ -26,6 +26,9 @@ const getCategory = async (req, res) => {
     res.status(500).json({ message: err });
   }
 };
+
+
+
 
 module.exports = {
     getCategory,

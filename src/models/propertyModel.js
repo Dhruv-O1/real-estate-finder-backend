@@ -8,56 +8,75 @@ const propertySchema=new Schema({
         type:String,
         required:true,
     },
+    categoryId:{
+        type:Schema.Types.ObjectId,
+        ref:"category"
+    },
+    basePrice:{
+        type:Number,
+        required:true
+    },
     address:{
         type:String,
 
     },
-    zipcode:{
-        type:Number
-    },
-    categoryId:{
+    stateId:{
         type:Schema.Types.ObjectId,
-        ref:"category"
-    
-    },
-    areaId:{
-        type:Schema.Types.ObjectId,
-        ref:"area",
+        ref:"state",
     },
     cityId:{
         type:Schema.Types.ObjectId,
         ref:"city",
 
     },
-    stateId:{
+    areaId:{
         type:Schema.Types.ObjectId,
-        ref:"state"
+        ref:"area",
+    },
+    
+    nearbyLandmark:{
+        type: String,
+    },
+    googleMapLink:{
+        type: String,
     },
     userId:{
         type:Schema.Types.ObjectId,
         ref:"user"
     
     },
-    description:{
-        type:String,
-    },
-    basePrice:{
+    builtUpArea:{
         type:Number,
-        required:true
     },
+    carpetArea:{
+        type:Number,
+    },
+    
     bedrooms:{
         type:Number,
     },
     bathrooms:{
+        type:Number,
+    },
+    balconies:{
         type:Number
     },
     furnishingStatus:{
         type:String,
         enum:["Furnished","Semi-Furnished","Unfurnished"],
     },
-    status:{
+    propertyAge:{
+        type:Number
+    },
+    facingDirection:{
         type:String,
-        enum:["Available","Sold","Rented"]
+        enum:["north","south","east","west"]
+    },
+    parkingSlot:{
+        type:Number,
+    },
+    propertyImageURL:{
+        type:String,
     }
 
 },{

@@ -5,4 +5,5 @@ routes.post("/add",categoryController.addCategory)
 
 routes.get("/get",categoryController.getCategory)
 
+
 module.exports = routes
