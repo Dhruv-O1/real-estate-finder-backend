@@ -55,6 +55,27 @@ const getAllProperty =async(req,res)=>{
         })
     }
 }
+const getSingleProperty =async(req,res)=>{
+
+    try{
+        const propertyId = req.params.propertyId
+
+        const getSingleProperty=await propertyModel.findOne({_id:propertyId}).populate("categoryId").populate("areaId").populate("cityId").populate("stateId").populate("userId");
+
+        res.status(200).json({
+            message:"Single Property Featched Succesfully ...!",
+            data:getSingleProperty
+        })
+    
+    }
+
+    catch(err){
+
+        res.status.json(500)({
+            message:err.message
+        })
+    }
+}
 
 const deleteProperty=async(req,res)=>{
 
@@ -102,5 +123,5 @@ const addPropertyWithFile = async (req, res) => {
   
 
 module.exports={
-    addProperty,getAllProperty,deleteProperty,addPropertyWithFile
+    addProperty,getAllProperty,deleteProperty,addPropertyWithFile,getSingleProperty
 }

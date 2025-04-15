@@ -13,9 +13,9 @@ const cors = require("cors")
 const app = express()
 
 //using cors with express
-app.use(cors({
-    origin: "http://localhost:5173" // Only this domain can access the API
-}))
+app.use(cors(
+    // Only this domain can access the API 
+    ))
 
 
 //below line to accept data in json raw
@@ -41,6 +41,12 @@ app.use("/category",categoryRoutes)
 
 const propertyRoutes = require("./src/routes/propertyRoutes")
 app.use("/property", propertyRoutes)
+
+const favouriteRoutes = require("./src/routes/favouriteRoutes")
+app.use("/favourite", favouriteRoutes)
+
+const inquiryRoutes = require("./src/routes/inquiryRoutes")
+app.use("/inquiry", inquiryRoutes)
 
 //connect to database
 mongoose.connect("mongodb://127.0.0.1:27017/dhruvRole").then(() => {

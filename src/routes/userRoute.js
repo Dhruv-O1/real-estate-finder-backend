@@ -12,5 +12,11 @@ routes.delete("/user/:userId", userController.deleteUser)
 
 routes.get('/user/:userId', userController.getUserById)
 
+
+routes.post('/forgotpassword',userController.forgotPassword)
+
+routes.post('/resetpassword',userController.resetpassword)
+
+
 module.exports = routes
 
