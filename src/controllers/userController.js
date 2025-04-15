@@ -116,13 +116,13 @@ const deleteUser = async (req,res) => {
 
 
 const forgotPassword = async (req, res) => {
-    const email = req.body.email;
+     const email = req.query.email;
     const foundUser = await userModel.findOne({ email: email });
   
     if (foundUser) {
       const token = jwt.sign(foundUser.toObject(), secret);
       console.log(token);
-      const url = `http://localhost:5173/resetpassword/${token}`;
+      const url = `http://localhost:5177/resetpassword/${token}`;
       const mailContent = `<html>
                             <a href ="${url}">reset password</a>
                             </html>`;
